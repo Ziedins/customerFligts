@@ -21,6 +21,9 @@ class AppFixtures extends Fixture
         $this->enconder = $enconder;
     }
 
+    /**
+     * @param ObjectManager $manager
+     */
     public function load(ObjectManager $manager)
     {
         $user = new Customer();

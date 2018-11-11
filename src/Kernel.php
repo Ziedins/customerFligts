@@ -50,6 +50,10 @@ class Kernel extends BaseKernel
         $loader->load($confDir.'/{services}_'.$this->environment.self::CONFIG_EXTS, 'glob');
     }
 
+    /**
+     * @param RouteCollectionBuilder $routes
+     * @throws \Symfony\Component\Config\Exception\FileLoaderLoadException
+     */
     protected function configureRoutes(RouteCollectionBuilder $routes)
     {
         $confDir = $this->getProjectDir().'/config';

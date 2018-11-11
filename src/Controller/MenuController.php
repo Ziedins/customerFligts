@@ -12,7 +12,6 @@ use App\Entity\Customer;
 use App\Entity\Passanger;
 use App\Entity\Ticket;
 use App\Entity\Trip;
-use App\Form\Type\PassangerType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;

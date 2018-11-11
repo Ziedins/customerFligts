@@ -10,6 +10,11 @@ use Doctrine\Migrations\AbstractMigration;
  */
 final class Version20181110223817 extends AbstractMigration
 {
+    /**
+     * @param Schema $schema
+     * @throws \Doctrine\DBAL\DBALException
+     * @throws \Doctrine\DBAL\Migrations\AbortMigrationException
+     */
     public function up(Schema $schema) : void
     {
         // this up() migration is auto-generated, please modify it to your needs
@@ -18,6 +23,11 @@ final class Version20181110223817 extends AbstractMigration
         $this->addSql('ALTER TABLE customer ADD name VARCHAR(255) DEFAULT NULL, ADD address VARCHAR(255) DEFAULT NULL, ADD city VARCHAR(255) DEFAULT NULL, ADD country VARCHAR(255) DEFAULT NULL');
     }
 
+    /**
+     * @param Schema $schema
+     * @throws \Doctrine\DBAL\DBALException
+     * @throws \Doctrine\DBAL\Migrations\AbortMigrationException
+     */
     public function down(Schema $schema) : void
     {
         // this down() migration is auto-generated, please modify it to your needs
