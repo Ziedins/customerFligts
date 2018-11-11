@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="container py-3">
+        <div class="row">
+            <div class="h3 px-3">{{ label }}</div>
+        </div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+        <div class="row justify-content-end">
+            <a href="/" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+{% endblock %}

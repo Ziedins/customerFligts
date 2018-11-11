@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="Customer Portal">
+    <meta name="author" content="Reinis Ziedins">
+    <link rel="icon" href="https://getbootstrap.com/favicon.ico">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" rel="stylesheet">
+    {% block stylesheets %}{% endblock %}
+    <title>{% block title %}{% endblock %}</title>
+</head>
+
+<body id="{% block body_id %}{% endblock %}">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">Customer Portal</a>
+</nav>
+<div class="container">
+    {% block body %}
+            {% block main %}{% endblock %}
+    {% endblock %}
+</div>
+{% block javascripts %}
+{% endblock %}
+</body>
+</html>
+<!doctype html>

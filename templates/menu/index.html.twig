@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div class="py-3 w-50">
+        <div class="row mb-3 text-white bg-dark">
+            <div class="p-3">{{ label }}</div>
+        </div>
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+    </div>
+    <div class="my-3">
+        {% if passangers|default %}
+            <table id="passangers" class="table table-striped">
+                <caption class="p-3 text-white bg-dark" style="caption-side: top">Passangers</caption>
+                <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>First Name</th>
+                    <th>Surname</th>
+                    <th>Passport ID</th>
+                    <th>Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for passanger in passangers %}
+                    <tr>
+                        <td>{{ passanger.title }}</td>
+                        <td>{{ passanger.name }}</td>
+                        <td>{{ passanger.surname }}</td>
+                        <td>{{ passanger.passportId }}</td>
+                        <td>
+                            <a class="btn btn-primary delete-passanger" data-id="{{ passanger.id }}" href="#">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="row justify-content-end px-3">
+                <a href="/passanger" class="btn btn-primary mx-1">Add</a>
+            </div>
+        {% else %}
+            <div class="row justify-content-center" style="min-height: 200px;">
+                <a class="btn btn-primary col-4 align-self-center" href="/passanger">Add Passanger</a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="my-3">
+        {% if trips|default %}
+            <table id="trips" class="table table-striped">
+                <caption class="p-3 text-white bg-dark" style="caption-side: top">Trips</caption>
+                <thead>
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Departure</th>
+                    <th>Arrival</th>
+                    <th>Passangers</th>
+                    <th>Options</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for trip in trips %}
+                    <tr>
+                        <td>{{ trip.whereFrom }}</td>
+                        <td>{{ trip.whereTo }}</td>
+                        <td>{{ trip.departure|date('d/M/Y H:i') }}</td>
+                        <td>{{ trip.arrival|date('d/M/Y H:i') }}</td>
+                        <td>
+                            {% for ticket in trip.tickets %}
+                                <span>{{ ticket.passanger.title }} {{ ticket.passanger.name }} {{ ticket.passanger.surname }}{% if not loop.last %},{% endif %}</span>
+                            {% endfor %}
+                        </td>
+                        <td>
+                            <a class="btn btn-primary delete-trip" data-id="{{ trip.id }}" href="#">Delete</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <div class="row justify-content-end px-3">
+                <a href="/trip" class="btn btn-primary mx-1">Add</a>
+            </div>
+        {% else %}
+            <div class="row justify-content-center" style="min-height: 200px;">
+                <a class="btn btn-primary col-4 align-self-center" href="/trip">Add Trip</a>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="js/menu.js"></script>
+{% endblock %}
